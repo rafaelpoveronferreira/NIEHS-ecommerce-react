@@ -1,0 +1,105 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+@layer base {
+  /*Root*/
+  :root{
+    font-family: Tajawal,Helvetica,Arial,sans-serif;
+    font-weight: 700;
+  }
+
+  /*h1, h2, h3, h4, h5*/
+  h2 {
+    @apply text-4xl
+  }
+
+  h3 {
+    @apply text-2xl
+  }
+
+  h4 {
+    @apply text-xl
+  }
+
+  h5 {
+    @apply text-lg
+  }
+
+  /*Scrollbar para navegadores web-kit*/
+  .scrollbar::-webkit-scrollbar {
+    width: 10px;
+    height: 20px;
+  }
+
+  .scrollbar::-webkit-scrollbar-track {
+    border-radius: 100vh;
+    background: rgb(229 231 235);
+  }
+
+  .scrollbar::-webkit-scrollbar-thumb {
+    background: rgb(200 200 200);
+    border-radius: 100vh;
+    border: 3px solid rgb(229 231 235);
+  }
+
+  .scrollbar::-webkit-scrollbar-thumb:hover {
+    background: rgb(156 163 175);
+  }
+}
+
+@layer components {
+  .black-button {
+    @apply p-3 px-5 text-white bg-black hover:bg-black/80
+  }
+  .gray-400-button {
+    @apply p-3 px-5 text-white bg-gray-400 hover:bg-gray-400/80
+  }
+  .auth-button {
+    @apply text-white text-xl font-sans font-light h-3/5 m-auto px-3 py-1 flex gap-4 justify-between outline outline-1 outline-gray-400
+  }
+  .mobile-full-page {
+    @apply overflow-scroll scrollbar 
+    p-8 mt-24 h-screen w-full z-50
+    bg-gray-100
+  }
+  .lg-screen-half-page {
+    @apply overflow-scroll scrollbar
+    fixed top-0 right-0 p-5 
+    h-full w-1/2 z-50
+    bg-gray-100
+    border-l border-solid border-gray-400 shadow-black
+    duration-1000 ease-in
+  }
+
+  .after-underline {
+    @apply after:absolute after:h-[2px] after:w-3/4 after:left-1/2 after:-translate-x-1/2 after:bottom-0 after:bg-red-400 after:content-['']
+  }
+
+  .after-underline-header {
+    @apply after:absolute after:h-[2px] after:w-1/5 after:left-1/2 after:-translate-x-1/2 after:bottom-0 after:bg-red-400 after:content-['']
+  }
+
+  /*Animated .svg on homepage*/
+  .SlideCircle {
+    position: absolute;
+    border-radius: 50%;
+    width: 300px;
+    height: 300px;
+    background-color: #bee2d6;
+    animation: circle;
+    animation-duration: 15s;
+    animation-iteration-count: infinite;
+
+  }
+
+  @keyframes circle {
+    0%   {background-color: #bee2d6;}
+    33%  {background-color: rgb(248 113 113);}
+    66%  {background-color: #d6d4f0;}
+    100% {background-color: #bee2d6;}
+  }
+
+}

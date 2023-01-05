@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: 'Urbanist', sans-serif;
+  font-size: 16px;
+
+}
+
+input:focus {
+  outline-width: 0px;
+}
+
+.SlideSVG {
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  background-color: #0A7D7D;
+  animation: circle;
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
+
+}
+
+
+.SlideCircle {
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  border-radius: 50%;
+  width: 300px;
+  height: 300px;
+  border: solid 0px black;
+  background-color: #0A7D7D;
+  animation: circle;
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
+
+}
+
+@keyframes circle {
+  0%   {background-color: #0A7D7D;}
+  33%  {background-color: #DA143E;}
+  66%  {background-color: #5E5264;}
+  100% {background-color: #0A7D7D;}
+}
+
+
+

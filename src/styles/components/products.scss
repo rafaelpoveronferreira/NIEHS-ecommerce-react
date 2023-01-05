@@ -1,0 +1,12 @@
+.product-thumb {
+    &:hover {
+      background-color: rgb(245 251 253);
+      cursor: pointer;
+      
+  
+      .product-thumb-img img {
+        transform: scale(1.1);
+      }
+    }
+  }
+  
