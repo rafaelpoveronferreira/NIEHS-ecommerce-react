@@ -71,7 +71,7 @@ const Product = ({item, filteredColor}) => {
                         mx-auto'>
 
             {/* Img with link aspect ratio for the img is: 0.43462897526 after:opacity-0 after:hover:opacity-100*/}
-            <Link to={`../product/${item._id}/?color=${selectedColor}`}
+            <Link to={`product/${item._id}/?color=${selectedColor}`}
                   className="group
                              h-[80%] w-full text-ellipsis overflow-hidden
                              relative justify-center
@@ -81,7 +81,7 @@ const Product = ({item, filteredColor}) => {
                                 absolute w-full h-full top-0 left-0 z-10
                                 group-hover:scale-110
                                 object-contain'
-                    src={`../src/assets/products/${item._id}_1_${selectedColor}.webp`}/>
+                    src={new URL(`/src/assets/products/${item._id}_1_${selectedColor}.webp`, import.meta.url).href}/>
                 <div className='ease-in duration-300
                                 bg-[rgba(0,0,0,0.2)]  opacity-0 group-hover:opacity-100
                                 absolute w-full h-full top-0 left-0 z-20'/>

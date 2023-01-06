@@ -4,5 +4,6 @@ import react from '@vitejs/plugin-react'
 // For building, add base:
 export default defineConfig({
   base: '/NIEHS-ecommerce-react/',
+  assetsInclude: ['**/*.gif', '**/*.webp'],
   plugins: [react()]
 })
