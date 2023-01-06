@@ -1,6 +1,6 @@
 import React from "react";
 import { useRef } from "react";
-import { Link, Navigate, redirect } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faGithub, faTwitter } from '@fortawesome/free-brands-svg-icons';
@@ -11,6 +11,7 @@ import useResetScroll from '../../hooks/useResetScroll'
 import * as Yup from 'yup'
 import { Field, Form, Formik } from "formik";
 import CustomInput from '../../common/components/CustomInput';
+import { useEffect } from "react";
 
 const FormSchema = Yup.object().shape({
     userOrEmail: Yup.string()
@@ -26,13 +27,15 @@ const FormSchema = Yup.object().shape({
 const Login = () => {
     useResetScroll();
     
-    //const [userOrEmail, setUserOrEmail] = useState(null)
-    //const [password, setPassword] = useState(null)
-
     const passwordInput = useRef(null);
     const userInput = useRef(null);
+    const navigateTo = useNavigate();
 
     const {user, login} = useAuth();
+
+    useEffect(()=>{
+        if (user?.currentUser && !user?.error) {navigateTo('../')}
+    })
 
     const initFormikValues = {
         userOrEmail: '',
@@ -50,7 +53,6 @@ const Login = () => {
 
     return(
         <>
-        {(user?.currentUser && !user?.error) && <Navigate to=''/>}
         <div className="w-full h-24"/>
 
         <section className="
@@ -88,7 +90,7 @@ const Login = () => {
                             <div className="flex flex-row justify-around w-full">
                                 <Link to={'recover-password'} className='text-xs text-gray-400 my-auto'>
                                     Esqueceu a Senha?</Link>
-                                <button className="black-button" type="submit"
+                                <button className={user.isLoading?'gray-400-button cursor-not-allowed':'black-button cursor-pointer'} type="submit"
                                     disabled={user.isLoading}>Entrar</button>
                             </div>
                         </div>

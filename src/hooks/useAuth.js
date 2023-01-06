@@ -31,11 +31,9 @@ export const useAuth = () => {
     
     const login = async (payload) => {
         dispatch(loginStart())
-
         try {
             const loggedUser = await axios.post(SERVER+'/auth/login', payload, {withCredentials:true})
-            
-            console.log(loggedUser)
+
             dispatch(loginSuccess(loggedUser.data))
             return true
         } catch (error) {

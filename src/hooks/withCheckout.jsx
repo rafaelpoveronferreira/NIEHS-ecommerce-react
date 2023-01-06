@@ -13,7 +13,7 @@ function withCheckout(Component) {
     const navigateTo = useNavigate()
 
     if (!user?.currentUser) {navigateTo('login')}
-    else if(cart?.products.length==0) {navigateTo('')}
+    else if(cart?.products.length==0) {navigateTo('../')}
 
     return(
         <>

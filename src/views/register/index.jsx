@@ -1,6 +1,6 @@
 import React from "react";
 import { useRef } from "react";
-import { Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faGithub, faTwitter } from '@fortawesome/free-brands-svg-icons';
@@ -10,6 +10,7 @@ import useResetScroll from '../../hooks/useResetScroll'
 import * as Yup from 'yup'
 import { Field, Form, Formik } from "formik";
 import CustomInput from '../../common/components/CustomInput';
+import { useEffect } from "react";
 
 const FormSchema = Yup.object().shape({
     username: Yup.string()
@@ -35,10 +36,14 @@ const Register = () => {
 
     const passwordInput = useRef(null);
     const userInput = useRef(null);
+    const navigateTo = useNavigate()
 
     const {user, register} = useAuth();
 
-    console.log(user)
+    useEffect(()=>{
+        if (user?.currentUser && !user?.error) {navigateTo('../')}
+    })
+
     const initFormikValues = {
         username: '',
         email: '',
@@ -52,7 +57,6 @@ const Register = () => {
 
     return(
         <>
-        {(user?.currentUser && !user?.error) && <Navigate to=''/>}
         <div className="w-full h-24"/>
 
         <section className="
@@ -92,7 +96,7 @@ const Register = () => {
                                 placeholder="Enter your password"
                                 component={CustomInput}/>
                             <div className="flex flex-row justify-end w-full">
-                                <button className="black-button" type="submit"
+                                <button className={user.isLoading?'gray-400-button cursor-not-allowed':'black-button cursor-pointer'} type="submit"
                                     disabled={user.isLoading}>Registrar</button>
                             </div>
                         </div>
