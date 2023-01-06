@@ -1,4 +1,3 @@
-import createURL from "../../../utils/createURL"
 
 const Thumbnail = (props) => {
     return(
@@ -7,7 +6,7 @@ const Thumbnail = (props) => {
                 className="object-contain
                 h-[80px] min-w-[80px] sm:h-[150px] sm:w-full
                 border border-solid border-gray-400"
-                src={createURL(`/src/assets/products/${props.id}_${props.img}_${props.color}.webp`)}
+                src={new URL(`/src/assets/products/${props.id}_${props.img}_${props.color}.webp`,import.meta.url).href}
             />
         </div>
     )

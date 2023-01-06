@@ -10,7 +10,6 @@ import { COLORSTOCSSCLASSES, SIZES } from "../../global/constants";
 import { useCart } from "../../hooks/useCart";
 import moneyMask from "../../utils/moneyMask";
 import { usePreferences } from "../../hooks/usePreferences";
-import createURL from "../../utils/createURL";
 
 const Product = () => {
     useResetScroll();
@@ -32,7 +31,7 @@ const Product = () => {
     const [selectedImgIndex, setSelectedImgIndex] = useState(1)
     const [selectedColor, setSelectedColor] = useState(colorFromLink)
     const [selectedSize, setSelectedSize] = useState(null)
-    const imgSrc = createURL(`/src/assets/products/${id}_${selectedImgIndex}_${selectedColor}.webp`)
+    const imgSrc = new URL(`/src/assets/products/${id}_${selectedImgIndex}_${selectedColor}.webp`,import.meta.url).href
 
     // Cria array de índices para ser utilizado em função .map() durante renderização
     const imgArrayRange = [...Array(imgRange+1).keys()].slice(1);
@@ -62,7 +61,7 @@ const Product = () => {
                                 color={selectedColor}
                                 setSelectedImgIndex={setSelectedImgIndex} 
                                 />)
-                            :<img src={createURL('/src/assets/loading.gif')}/>
+                            :<img src={new URL('/src/assets/loading.gif',import.meta.url).href}/>
                         }
                    </div>
                 </div>

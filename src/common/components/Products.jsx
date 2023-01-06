@@ -4,7 +4,6 @@ import { faCartShopping, faHeart } from '@fortawesome/free-solid-svg-icons';
 import React from 'react'
 import { useState } from 'react';
 import { useEffect } from 'react';
-import Skeleton, { SkeletonTheme } from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
 import { Link } from 'react-router-dom';
 import { useCart } from '../../hooks/useCart.js';
@@ -13,8 +12,6 @@ import Loading from './Loading';
 import moneyMask from '../../utils/moneyMask.js';
 import { usePreferences } from '../../hooks/usePreferences.js';
 import { COLORSTOCSSCLASSES } from '../../global/constants.js';
-import createURL from '../../utils/createURL.js';
-
 
 const Products = ({products, filteredColor, filteredSize, isLoading, error}) => {
     return( 
@@ -52,7 +49,7 @@ const Product = ({item, filteredColor}) => {
     const {language} = usePreferences()
 
     useEffect(()=>{
-        setUrl(createURL(`/src/assets/products/${item._id}_1_${selectedColor}.webp`))
+        setUrl(new URL(`/src/assets/products/${item._id}_1_${selectedColor}.webp`, import.meta.url).href)
     },[selectedColor])
 
     useEffect(()=> {

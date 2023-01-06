@@ -3,8 +3,6 @@ import { faTrash, faMinus, faPlus, faX } from '@fortawesome/free-solid-svg-icons
 import { usePreferences } from '../../../hooks/usePreferences';
 import moneyMask from '../../../utils/moneyMask'
 import { useCart } from '../../../hooks/useCart';
-import { useState } from 'react';
-import createURL from '../../../utils/createURL';
 
 const CartItems = ({products, changeQuantity, removeProduct}) => {
     const {language} = usePreferences()
