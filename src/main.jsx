@@ -34,7 +34,9 @@ import { createBrowserRouter, RouterProvider, Route, redirect} from 'react-route
 
 const router = createBrowserRouter([
   {
-    path: '/',
+    //path: '/',
+    // If using vite.config base, use:
+    path: '/NIEHS-ecommerce-react/',
     element: <App />,
     errorElement: <ErrorPage />,
     children: [
