@@ -1,5 +1,4 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
 import category1 from '../../../assets/category1.jpeg'
 import category2 from '../../../assets/category2.jpg'
 import category3 from '../../../assets/category3.webp'

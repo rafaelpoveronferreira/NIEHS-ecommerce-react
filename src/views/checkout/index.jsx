@@ -5,7 +5,7 @@ import CheckoutStep3 from "./components/CheckoutStep3"
 import { useState } from "react"
 import useResetScroll from '../../hooks/useResetScroll'
 import useVerifyToken from '../../hooks/useVerifyToken'
-import { Link, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { useModal } from '../../hooks/useModal'
 import Modal from "../../common/components/Modal";
 import { useAuth } from '../../hooks/useAuth'
@@ -32,7 +32,7 @@ const Order = () => {
 
     useEffect(()=>{
         if(!isOpenModal && !user?.currentUser) {
-            navigateTo('../login')
+            navigateTo('login')
         }
     })
 

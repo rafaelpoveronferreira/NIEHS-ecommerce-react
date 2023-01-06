@@ -19,7 +19,7 @@ const Cart = ({mobile}) => {
     function handleCheckout() {
         if(user.currentUser) {
             closeCart()
-            navigateTo('../checkout');
+            navigateTo('checkout');
         } else {
             openModal()
         }
@@ -34,7 +34,7 @@ const Cart = ({mobile}) => {
                 <button onClick={closeModal} className="p-3 px-5 text-white bg-gray-700 hover:bg-black" >
                     Voltar às compras
                 </button>
-                <Link to='../login' onClick={() => {closeModal();closeCart();}} className="p-3 px-5 text-white bg-gray-700 hover:bg-black" >
+                <Link to='login' onClick={() => {closeModal();closeCart();}} className="p-3 px-5 text-white bg-gray-700 hover:bg-black" >
                     Entrar
                 </Link>
             </div>

@@ -13,6 +13,7 @@ import Loading from './Loading';
 import moneyMask from '../../utils/moneyMask.js';
 import { usePreferences } from '../../hooks/usePreferences.js';
 import { COLORSTOCSSCLASSES } from '../../global/constants.js';
+import createURL from '../../utils/createURL.js';
 
 
 const Products = ({products, filteredColor, filteredSize, isLoading, error}) => {
@@ -47,7 +48,12 @@ const Products = ({products, filteredColor, filteredSize, isLoading, error}) => 
 
 const Product = ({item, filteredColor}) => {
     const [selectedColor, setSelectedColor] = useState(filteredColor?filteredColor:item.color[0])
+    const [url, setUrl] = useState(null)
     const {language} = usePreferences()
+
+    useEffect(()=>{
+        setUrl(createURL(`/src/assets/products/${item._id}_1_${selectedColor}.webp`))
+    },[selectedColor])
 
     useEffect(()=> {
         if (filteredColor && item.color.includes(filteredColor)) {
@@ -81,7 +87,7 @@ const Product = ({item, filteredColor}) => {
                                 absolute w-full h-full top-0 left-0 z-10
                                 group-hover:scale-110
                                 object-contain'
-                    src={new URL(`/src/assets/products/${item._id}_1_${selectedColor}.webp`, import.meta.url).href}/>
+                    src={url}/>
                 <div className='ease-in duration-300
                                 bg-[rgba(0,0,0,0.2)]  opacity-0 group-hover:opacity-100
                                 absolute w-full h-full top-0 left-0 z-20'/>
@@ -116,7 +122,7 @@ const Product = ({item, filteredColor}) => {
                             '>
                 <Icon id='add-to-cart' icon={faCartShopping} 
                     iconColor='hover:text-green-500'
-                    item={item} selectedColor={selectedColor} imgSrc={`../src/assets/products/${item._id}_1_${selectedColor}.webp`}/>
+                    item={item} selectedColor={selectedColor} imgSrc={url}/>
                 <Icon id='add-to-wishlist' icon={faHeart} 
                     iconColor='hover:text-red-500' />
             </div>

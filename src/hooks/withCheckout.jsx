@@ -1,4 +1,3 @@
-import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { useAuth } from "./useAuth"
 import { useCart } from "./useCart"
@@ -13,8 +12,8 @@ function withCheckout(Component) {
 
     const navigateTo = useNavigate()
 
-    if (!user?.currentUser) {navigateTo('../login')}
-    else if(cart?.products.length==0) {navigateTo('../')}
+    if (!user?.currentUser) {navigateTo('login')}
+    else if(cart?.products.length==0) {navigateTo('')}
 
     return(
         <>

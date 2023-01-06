@@ -1,5 +1,4 @@
 import React from "react";
-import { useDispatch } from 'react-redux';
 import useResetScroll from '../../hooks/useResetScroll'
 import { useLocation } from "react-router-dom";
 import { useState } from "react";
@@ -11,6 +10,7 @@ import { COLORSTOCSSCLASSES, SIZES } from "../../global/constants";
 import { useCart } from "../../hooks/useCart";
 import moneyMask from "../../utils/moneyMask";
 import { usePreferences } from "../../hooks/usePreferences";
+import createURL from "../../utils/createURL";
 
 const Product = () => {
     useResetScroll();
@@ -32,7 +32,7 @@ const Product = () => {
     const [selectedImgIndex, setSelectedImgIndex] = useState(1)
     const [selectedColor, setSelectedColor] = useState(colorFromLink)
     const [selectedSize, setSelectedSize] = useState(null)
-    const imgSrc = `../../src/assets/products/${id}_${selectedImgIndex}_${selectedColor}.webp`
+    const imgSrc = createURL(`/src/assets/products/${id}_${selectedImgIndex}_${selectedColor}.webp`)
 
     // Cria array de índices para ser utilizado em função .map() durante renderização
     const imgArrayRange = [...Array(imgRange+1).keys()].slice(1);
@@ -62,7 +62,7 @@ const Product = () => {
                                 color={selectedColor}
                                 setSelectedImgIndex={setSelectedImgIndex} 
                                 />)
-                            :<img src='../../src/assets/loading.gif'/>
+                            :<img src={createURL('/src/assets/loading.gif')}/>
                         }
                    </div>
                 </div>

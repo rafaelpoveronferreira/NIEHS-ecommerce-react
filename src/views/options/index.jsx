@@ -19,12 +19,12 @@ const Options = () => {
             </div>
             {!user?.currentUser?
                   <>
-                    <Link to='../login' 
+                    <Link to='login' 
                       className='w-full h-1/3 flex justify-center items-center gap-8 text-xl'>
                       <FontAwesomeIcon icon={faRightToBracket} size="lg" className='my-auto'/>
                       <span className='my-auto'>Entrar</span>  
                     </Link>
-                    <Link to='../register' 
+                    <Link to='register' 
                       className='w-full h-1/3 flex justify-center items-center gap-8 text-xl'> 
                       <FontAwesomeIcon icon={faUserPlus} size="lg" className='my-auto'/>
                       <span className='my-auto'>Registrar</span>  

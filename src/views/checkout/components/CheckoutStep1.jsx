@@ -12,7 +12,7 @@ const OrderSummary = ({currentStep, setCurrentStep, cart, changeQuantity, remove
                 <h2>Revise os itens</h2>
                 <CartItems products={cart.products} changeQuantity={changeQuantity} removeProduct={removeProduct} />
                 <div className="w-full flex justify-between my-5">
-                    <Link to='../products' className="gray-400-button">
+                    <Link to='products' className="gray-400-button">
                         Voltar às compras</Link>
                     <button className="black-button" onClick={()=>setCurrentStep(currentStep+1)}>
                         Continuar</button>

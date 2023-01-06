@@ -1,14 +1,11 @@
 import React from 'react'
 import CoverItem from './CoverItem'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {faArrowAltCircleRight, faArrowAltCircleLeft, faAnglesRight} from '@fortawesome/free-solid-svg-icons'
 
 import cover1 from '../../../assets/cover1.png'
 import cover2 from '../../../assets/cover2.png'
 import cover3 from '../../../assets/cover3.png'
 import cover4 from '../../../assets/cover4.png'
 import cover5 from '../../../assets/cover5.png'
-import { Link } from 'react-router-dom'
 
 const Cover = () => {
     return (

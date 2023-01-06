@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUserPlus, faRightToBracket, faCartShopping } from '@fortawesome/free-solid-svg-icons';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 
-import { useState, useEffect, useRef} from 'react';
+import { useEffect, useRef} from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../../hooks/useAuth';
@@ -55,7 +55,7 @@ const Navbar = () => {
 
                 {/*LEFT (Logo + langMenu)*/}
                 <div className='flex w-fit justify-start md:w-fit md:justify-start gap-2 md:gap-6 px-5 min-w-max'>
-                    <Link to='../' className='p-auto m-auto'>
+                    <Link to='' className='p-auto m-auto'>
                       <h1
                         className='font-bold text-white antialiased font-sans text-3xl'
                         >
@@ -74,12 +74,12 @@ const Navbar = () => {
 
                   {!user?.currentUser?
                   <>
-                    <Link to='../login' 
+                    <Link to='login' 
                       className='auth-button w-max-content'>
                       <FontAwesomeIcon icon={faRightToBracket} size="lg" className='my-auto'/>
                       <span className='my-auto'>Entrar</span>  
                     </Link>
-                    <Link to='../register' 
+                    <Link to='register' 
                       className='auth-button w-max-content'> 
                       <FontAwesomeIcon icon={faUserPlus} size="lg" className='my-auto'/>
                       <span className='my-auto'>Registrar</span>  
@@ -109,7 +109,7 @@ const Navbar = () => {
                 <button className='flex justify-end md:hidden h-full px-5 gap-6'>
                   
                   <div className={`${isOnCheckout?'hidden':'static'}`}>
-                    <Link to='../cart' id='cart-link'>
+                    <Link to='cart' id='cart-link'>
                         <div className='h-full relative -left-8'
                           disabled={isOnCheckout}>
                           <FontAwesomeIcon icon={faCartShopping} color='white' size='2xl' 
@@ -120,7 +120,7 @@ const Navbar = () => {
                         </div>
                     </Link>
                   </div>
-                  <Link to='../options' className='my-auto' id='cart-link'>
+                  <Link to='options' className='my-auto' id='cart-link'>
                       <FontAwesomeIcon  icon={faBars} size='2xl' color='white'/>
                   </Link>
                 </button>

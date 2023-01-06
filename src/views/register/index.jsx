@@ -1,12 +1,10 @@
 import React from "react";
-import { useState, useRef } from "react";
-import { Link, Navigate, redirect } from "react-router-dom";
+import { useRef } from "react";
+import { Navigate } from "react-router-dom";
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faGithub, faTwitter } from '@fortawesome/free-brands-svg-icons';
 
-
-import { EMAILREGEX } from "../../global/constants";
 import { useAuth } from "../../hooks/useAuth";
 import useResetScroll from '../../hooks/useResetScroll'
 import * as Yup from 'yup'
@@ -54,7 +52,7 @@ const Register = () => {
 
     return(
         <>
-        {(user?.currentUser && !user?.error) && <Navigate to='/'/>}
+        {(user?.currentUser && !user?.error) && <Navigate to=''/>}
         <div className="w-full h-24"/>
 
         <section className="

@@ -2,8 +2,6 @@ import React from "react";
 import Products from "../../common/components/Products";
 import ProductsSorter from "./components/ProductsSorter";
 import CategorySelector from "./components/CategorySelector";
-import { useState } from "react";
-import { useEffect } from "react";
 import useResetScroll from '../../hooks/useResetScroll'
 import useProducts from "../../hooks/useProducts";
 

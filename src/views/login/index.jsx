@@ -1,5 +1,5 @@
 import React from "react";
-import { useState, useRef } from "react";
+import { useRef } from "react";
 import { Link, Navigate, redirect } from "react-router-dom";
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -50,7 +50,7 @@ const Login = () => {
 
     return(
         <>
-        {(user?.currentUser && !user?.error) && <Navigate to='/'/>}
+        {(user?.currentUser && !user?.error) && <Navigate to=''/>}
         <div className="w-full h-24"/>
 
         <section className="
@@ -86,7 +86,7 @@ const Login = () => {
                                 placeholder="Enter your password"
                                 component={CustomInput}/>
                             <div className="flex flex-row justify-around w-full">
-                                <Link to={'../recover-password'} className='text-xs text-gray-400 my-auto'>
+                                <Link to={'recover-password'} className='text-xs text-gray-400 my-auto'>
                                     Esqueceu a Senha?</Link>
                                 <button className="black-button" type="submit"
                                     disabled={user.isLoading}>Entrar</button>
